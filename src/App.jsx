@@ -23,7 +23,7 @@ class Nav extends Component{
   }
   render(){
     const active=Store.getState().active;
-    const navList=Store.getState().header.map((e,index)=> (<a key={"nav-"+index} className={"nav-header "+(active===index?"active":"")} href={"#"+e} onClick={this.handleClick}>{e}</a>));
+    const navList=Store.getState().header.map((e,index)=> (<a key={"nav-"+index} className={"nav-header "+(active===index?"active":"")} href={"#"+e} >{e}</a>));
     return(
         <div className="nav">
             {navList}
@@ -51,7 +51,7 @@ class FootBuyCar extends Component{
         </svg>
         <span>{account}</span>
       </div>
-      <Link className="foot-buycar-settle" to="/settle">结算</Link>
+      <a className="foot-buycar-settle" onClick={this.goSettle}>结算</a>
     </div>)
   }
 

@@ -1,5 +1,5 @@
 
-export function sendRequest(type){
+export function sendRequest(param){
     const promise=new Promise(function(resolve,reject){
         const client=new XMLHttpRequest();
         client.onreadystatechange=()=>{
@@ -11,7 +11,7 @@ export function sendRequest(type){
                 }
            }
         }
-        client.open('GET',"http://localhost:8088/BuyCar/buy?keyword="+type);
+        client.open('GET',"http://localhost:8088/BuyCar/buy?"+param);
         client.send();
     })
    return promise;
@@ -30,7 +30,12 @@ export function initItem(type){
     })*/
     return (dispatch,getState)=>{
         dispatch({type:'INIT-START'});
-        return sendRequest(type).then(response=>dispatch({type:'INIT',result:response}));
+        return sendRequest("keyword="+type).then(
+            response=>dispatch({
+                type:'INIT',
+                result:response.result,
+                header:response.header.map(e=>e.header),
+                list:response.list}));
     }
     
 
@@ -85,7 +90,7 @@ export function setHeader(){
     
     return (dispatch,getState)=>{
         dispatch({type:'INIT-HEADER-START'});
-        return sendRequest(2).then(
+        return sendRequest("keyword=2").then(
             (response)=>{
                 var arr=response.map(e=>e.header);
                 
@@ -110,12 +115,26 @@ export function activePage(i){
 }
 
 export function addItem(e){
-    return{
+    /*return{
         type:'ADD',
         item:{
             name:e.name,
             price:e.price,
             count:e.count
         }
+    }*/
+    return (dispatch,getState)=>{
+        dispatch({type:'ADD-START'});
+        return sendRequest("keyword=3&&id="+e.id+"&&count="+e.count).then(
+            ()=>dispatch({
+                type:'ADD',
+                item:{
+                    id:e.id,
+                    name:e.name,
+                    price:e.price,
+                    count:e.count
+                }
+            })
+        )
     }
 }

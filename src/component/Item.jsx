@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import $ from 'jquery';
 import "../css/item.scss";
 import {Store} from "../redux/reducer.js";
-import {sendRequest} from "../redux/action.js";
+import {addItem as addToStore} from "../redux/action.js";
 
 
 export class Item extends React.Component{
@@ -13,29 +13,21 @@ export class Item extends React.Component{
     }
 
     addItem(){
-       /* $.ajax({
-            type:'GET',
-            url:"http://localhost:8088/BuyCar/buy",
-            dataType:'jsonp',
-            async:false,
-            jsonp:'callbackparam',
-            jsonpCallback:'jsonpCallback1',
-            success:function(data){
-                console.log(data);
-            },
-            error:function(){
-                console.log("myerror");
-            }
-        })*/
-        Store.dispatch({
+        /*Store.dispatch({
             type:"ADD",
             item:{
+                id:this.props.id,
                 name:this.props.iname,
                 price:this.props.price,
                 count:1
             }
-        })
-        console.log(Store.getState())
+        })*/
+        Store.dispatch(addToStore({
+            id:this.props.mid,
+            name:this.props.iname,
+            price:this.props.price,
+            count:1
+        })).then(console.log(Store.getState()));
     }
 
     render(){
@@ -65,7 +57,7 @@ export default class ItemList extends React.Component{
     }
     render(){
         const list=Store.getState().result.filter(e=>e.header==this.props.head);
-        const itemArr=list.map(i=>(<li key={i.name}><Item iname={i.name} price={i.price} /></li>));
+        const itemArr=list.map(i=>(<li key={i.name}><Item iname={i.name} price={i.price} mid={i.id}/></li>));
         return(
             <div className="item-list" id={this.props.head}>
                 <div className="item-header">{this.props.head}</div>

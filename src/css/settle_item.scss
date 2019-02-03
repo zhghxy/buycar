@@ -1,0 +1,57 @@
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+ a{
+     cursor: pointer;
+ }
+ .settle-list{
+     border:2px solid rgb(236, 160, 130);
+     padding:10px;
+     width:750px;
+     .settle-list-head{
+         height:40px;
+     }
+     th{
+        border-bottom:1px solid rgb(167, 162, 162);
+     }
+     td{
+         padding:5px 5px;
+         border-bottom:1px dashed rgb(167, 162, 162);
+     }
+ }
+ .settle-item{
+     //display:flex;
+     margin:20px 30px;
+     //border-bottom:1px dashed rgb(167, 162, 162);
+     /*.sub{
+         flex-basis: 50px;
+     }*/
+     .settle-item-name{
+        width:150px;
+        text-align:center;
+     }
+
+    .settle-item-control{
+         display:flex;
+         justify-content: center;
+         a,div{
+             padding:4px;
+             width:16px;
+             text-align:center;
+         }
+         a{
+             border:1px dotted rgb(170, 170, 170);
+         }
+         div{
+             border-top:1px dotted rgb(170, 170, 170);
+             border-bottom:1px dotted rgb(170, 170, 170);
+         }
+    }
+
+    .settle-item-account{
+        text-align:center;
+    }
+ }

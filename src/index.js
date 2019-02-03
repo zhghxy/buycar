@@ -10,17 +10,12 @@ import {initItem,setHeader, activePage} from "./redux/action.js";
 
 const render=()=>{
     ReactDOM.render(
-        <BrowserRouter>
-            <div>
-            <Route exact path="/" component={App} />
-            <Route path="/settle" component={SettlePage} />
-            </div>
-        </BrowserRouter>,
+        <App />,
         document.getElementById('root')
     );
 }
 Store.subscribe(render);
-Store.dispatch(setHeader()).then(()=>console.log(Store.getState()));;
+//Store.dispatch(setHeader()).then(()=>console.log(Store.getState()));;
 Store.dispatch(initItem(1)).then(()=>console.log(Store.getState()));
 window.addEventListener("scroll",function(){
     const list=document.getElementsByClassName("item-list"),
