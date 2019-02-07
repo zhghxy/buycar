@@ -12,9 +12,9 @@ const initState={
 export const Reducer=(state=initState,action)=>{
     switch(action.type){
         case 'INIT':
-            return Object.assign({},state,{ account:action.list.reduce(function(pre,cur){
+            return Object.assign({},state,{ account:Math.round(action.list.reduce(function(pre,cur){
                 return pre+cur.count*cur.price;
-            },0),result:action.result,header:action.header,list:action.list });
+            },0)*100)/100,result:action.result,header:action.header,list:action.list });
         case 'GET':
             return state;
         case 'INIT-HEADER':
@@ -41,7 +41,7 @@ export const Reducer=(state=initState,action)=>{
             if(!flag){
                 newState.list.push(action.item);
             }
-            newState.account+=action.item.price*action.item.count;
+            newState.account=Math.round((newState.account+action.item.price*action.item.count)*100)/100;
             return newState;
         }
             default:

@@ -8,30 +8,41 @@
      cursor: pointer;
  }
  .settle-list{
+     list-style: none;
      border:2px solid rgb(236, 160, 130);
      padding:10px;
      width:750px;
      .settle-list-head{
          height:40px;
      }
-     th{
+    li{
+        padding:5px 5px;
+        border-bottom:1px dashed rgb(167, 162, 162);
+        display:flex;
+        justify-content: space-around;
+        //text-align:left;
+    }
+
+     li:nth-child(1){
         border-bottom:1px solid rgb(167, 162, 162);
      }
-     td{
-         padding:5px 5px;
-         border-bottom:1px dashed rgb(167, 162, 162);
+     
+     .settle-account{
+         margin:20px 30px;
+         //text-align: center;
+         span:nth-child(1){
+             color:rgb(231, 146, 49);
+         }
+         span:nth-child(3){
+             color:rgba(224, 65, 65, 0.938);
+         }
      }
  }
  .settle-item{
-     //display:flex;
      margin:20px 30px;
-     //border-bottom:1px dashed rgb(167, 162, 162);
-     /*.sub{
-         flex-basis: 50px;
-     }*/
      .settle-item-name{
         width:150px;
-        text-align:center;
+        //text-align:center;
      }
 
     .settle-item-control{
@@ -46,12 +57,13 @@
              border:1px dotted rgb(170, 170, 170);
          }
          div{
+             width:50px;
              border-top:1px dotted rgb(170, 170, 170);
              border-bottom:1px dotted rgb(170, 170, 170);
          }
     }
-
     .settle-item-account{
-        text-align:center;
+        //text-align:center;
+        width:50px;
     }
  }

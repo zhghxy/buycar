@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
-import {SettlePage} from './component/settle_item.jsx';
-import {BrowserRouter,Switch,Route} from "react-router-dom";
-import * as serviceWorker from './serviceWorker';
+
 import {Store} from "./redux/reducer.js";
 import {initItem,setHeader, activePage} from "./redux/action.js";
 

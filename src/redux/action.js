@@ -33,20 +33,27 @@ export function initItem(type){
         return sendRequest("keyword="+type).then(
             response=>dispatch({
                 type:'INIT',
-                result:response.result,
+                result:response.result.map(e=>{
+                    return {
+                        header:e.header,id:e.id,image:e.image,name:e.name,
+                        maxcount:parseInt(e.maxcount),
+                        price:Math.round(parseFloat(e.price)*100)/100
+                    }
+                }),
                 header:response.header.map(e=>e.header),
-                list:response.list}));
+                list:response.list.map(e=>{
+                    return {
+                        id:e.id,
+                        count:parseInt(e.count),
+                        name:e.name,
+                        price:Math.round(parseFloat(e.price)*100)/100
+                    }
+                })
+            })
+        );
     }
     
 
-    /*sendRequest(1).then(function(response){
-        return {
-            type:"INIT",
-            result:response
-        }
-    },function(error){
-        console.log(error);
-    })*/
    /* return {
         type:'INIT',
         result:[
