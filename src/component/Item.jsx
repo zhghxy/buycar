@@ -25,6 +25,7 @@ export class Item extends React.Component{
             id:this.props.mid,
             name:this.props.iname,
             price:this.props.price,
+            image:this.props.image,
             count:1
         })).then(console.log(Store.getState()));
     }
@@ -62,7 +63,12 @@ export default class ItemList extends React.Component{
         const itemArr=list.map(i=>(<li key={i.name}><Item iname={i.name} price={i.price} mid={i.id} image={i.image}/></li>));
         return(
             <div className="item-list" id={this.props.head}>
-                <div className="item-header">{this.props.head}</div>
+                <div className='item-header'>
+                    <img src="https://img.alicdn.com/tfs/TB12NNMD9zqK1RjSZFLXXcn2XXa-120-48.png"></img>
+                    <h3>{this.props.head}</h3>
+                    <img src="https://img.alicdn.com/tfs/TB12NNMD9zqK1RjSZFLXXcn2XXa-120-48.png"></img>
+                </div>
+                
                 <ul>
                     {itemArr}
                 </ul>

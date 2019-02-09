@@ -46,7 +46,8 @@ export function initItem(type){
                         id:e.id,
                         count:parseInt(e.count),
                         name:e.name,
-                        price:Math.round(parseFloat(e.price)*100)/100
+                        price:Math.round(parseFloat(e.price)*100)/100,
+                        image:e.image
                     }
                 })
             })
@@ -139,7 +140,8 @@ export function addItem(e){
                     id:e.id,
                     name:e.name,
                     price:e.price,
-                    count:e.count
+                    count:e.count,
+                    image:e.image
                 }
             })
         )

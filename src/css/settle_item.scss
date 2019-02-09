@@ -14,12 +14,31 @@
      width:750px;
      .settle-list-head{
          height:40px;
+         padding:0 30px;
+         span{
+             text-align:center;
+             display:inline-block;
+             &:nth-child(1){
+                 width:250px;
+                 margin-right:30px;
+             }
+             &:nth-child(2){
+                 width:100px;
+             }
+             &:nth-child(3){
+                width:200px;
+             }
+             &:nth-child(4){
+                 width:100px;
+             }
+         }
      }
     li{
         padding:5px 5px;
         border-bottom:1px dashed rgb(167, 162, 162);
-        display:flex;
-        justify-content: space-around;
+        overflow:hidden;
+        //display:flex;
+        //justify-content: space-around;
         //text-align:left;
     }
 
@@ -29,18 +48,43 @@
      
      .settle-account{
          margin:20px 30px;
-         //text-align: center;
-         span:nth-child(1){
-             color:rgb(231, 146, 49);
+         span{
+             text-align:center;
+             display:inline-block;
+            &:nth-child(1){
+                color:rgb(231, 146, 49);
+                width:100px;
+            }
+            &:nth-child(2){
+                color:rgba(224, 65, 65, 0.938);
+                float:right;
+                width:100px;
+            }
          }
-         span:nth-child(3){
-             color:rgba(224, 65, 65, 0.938);
-         }
+         
      }
  }
  .settle-item{
      margin:20px 30px;
+     &>div{
+         float:left;
+         text-align:center;
+     }
+     .settle-item-desc{
+         width:250px;
+         margin-right:30px;
+     }
+     .settle-item-price{
+         width:100px;
+     }
+     .settle-item-pic{
+        width:80px;
+        height:80px;
+        display:block;
+        float:left;
+     }
      .settle-item-name{
+        margin-left:90px;
         width:150px;
         //text-align:center;
      }
@@ -48,6 +92,9 @@
     .settle-item-control{
          display:flex;
          justify-content: center;
+         text-align:center;
+         height:25px;
+         width:200px;
          a,div{
              padding:4px;
              width:16px;
@@ -55,6 +102,7 @@
          }
          a{
              border:1px dotted rgb(170, 170, 170);
+             background-color:rgb(247, 242, 242);
          }
          div{
              width:50px;
@@ -63,7 +111,6 @@
          }
     }
     .settle-item-account{
-        //text-align:center;
-        width:50px;
+        width:100px;
     }
  }
