@@ -1,3 +1,8 @@
+#root>div>h3{
+    color:#ff0c00cc;
+    width:770px;
+    margin:20px auto;
+}
 .icon {
     width: 1em; height: 1em;
     vertical-align: -0.15em;
@@ -9,9 +14,10 @@
  }
  .settle-list{
      list-style: none;
-     border:2px solid rgb(236, 160, 130);
+     border:2px solid rgb(207, 207, 207);
      padding:10px;
      width:750px;
+     margin:0 auto;
      .settle-list-head{
          height:40px;
          padding:0 30px;

@@ -9,7 +9,10 @@ Store.dispatch(initItem(1));
 const srender=()=>{
     console.log(Store.getState());
     ReactDOM.render(
-        <SettlePage />,
+        <div>
+            <h3>购物车</h3>
+            <SettlePage />
+        </div>,
         document.getElementById("root")
     );
 }

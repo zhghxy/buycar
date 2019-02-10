@@ -2,6 +2,7 @@
   background-color:#ff0c00cc;
   padding-top:20px;
   padding-bottom:20px;
+  min-width:750px;
 }
 a{
   text-decoration: none;
@@ -33,32 +34,36 @@ a{
     bottom:0;
     width:100%;
     height:50px;
-    border-top:2px solid red;
-    background-color:white;
+    //border-top:2px solid red;
+    background-color:rgb(194, 193, 193);
     .foot-buycar-detail{
         margin-right:80px;
         padding-left:20px;
         padding-top:5px;
         .icon{
-            color:red;
             width:2.5rem;
             height:2.5rem;
         }
         span{
             display:inline-block;
             margin-left:3rem;
-            line-height:45px;
             height:45px;
+            color:#ff0c00cc;
+            font-size:20px;
+            font-weight: bold;
+            vertical-align: middle;
         }
     }
     a{
        position: absolute;
-       right:20px;
+       right:0;
        top:0;
        height:50px;
+       width:80px;
        line-height:50px;
        text-align: center;
-       padding-left:10px;
-       border-left:2px solid red;
+       letter-spacing:5px;
+       color:white;
+       background-color:rgb(156, 155, 155);
     }
 }
