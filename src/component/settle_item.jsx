@@ -2,6 +2,8 @@ import React from "react";
 import { Store } from "../redux/reducer.js";
 import { addItem } from "../redux/action.js";
 import "../css/settle_item.scss";
+
+//结算页面条目
 export class SettleItem extends React.Component{
     constructor(props){
         super(props);
@@ -11,6 +13,7 @@ export class SettleItem extends React.Component{
         }
     }
 
+    //改变商品数量
     countChange(add){
         console.log(add);
         var oldCount=parseInt(this.state.count),

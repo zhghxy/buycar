@@ -1,26 +1,30 @@
+/**
+ * @file 购物页面
+ */
+
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import './App.scss';
 import ItemList from './component/Item.jsx'
 import {Store} from "./redux/reducer.js"
-import {activePage} from "./redux/action.js"
 
+
+//右侧导航
 class Nav extends Component{
   constructor(props){
     super(props);
-    this.handleClick=this.handleClick.bind(this);
+   // this.handleClick=this.handleClick.bind(this);
     this.state={
         active:Store.getState().active
     }
   }
-  handleClick(e){
+  /*handleClick(e){
     let i=0;
     for( i=0;i<this.headList.length;i++){
         if(e.target.innerHTML===this.headList[i])
             break;
     }
     Store.dispatch(activePage(i));
-  }
+  }*/
   render(){
     const active=Store.getState().active;
     const navList=Store.getState().header.map((e,index)=> (<a key={"nav-"+index} className={"nav-header "+(active===index?"active":"")} href={"#"+e} >{e}</a>));
@@ -31,6 +35,7 @@ class Nav extends Component{
   }
 }
 
+// 显示购物车总价
 class FootBuyCar extends Component{
   constructor(props){
     super(props);

@@ -4,7 +4,7 @@ import "../css/item.scss";
 import {Store} from "../redux/reducer.js";
 import {addItem as addToStore} from "../redux/action.js";
 
-
+//单个商品
 export class Item extends React.Component{
     constructor(props){
         super(props);
@@ -12,7 +12,6 @@ export class Item extends React.Component{
     }
 
     addItem(){
-       
         Store.dispatch(addToStore({
             id:this.props.mid,
             name:this.props.iname,
@@ -23,11 +22,10 @@ export class Item extends React.Component{
     }
 
     render(){
-        const imgSrc="2";
         return(
             <div className="item">
                 <LazyLoad>
-                <img src={require("../photo/"+this.props.image+".jpg")}/>
+                    <img src={require("../photo/"+this.props.image+".jpg")}/>
                 </LazyLoad>
                 <div className="item-desc">
                     <div className="item-note">
@@ -45,10 +43,10 @@ export class Item extends React.Component{
     }
 }
 
+//同系列商品集合
 export default class ItemList extends React.Component{
     constructor(props){
         super(props);
-       // Store.dispatch({type:'GET',header:this.props.head});
     }
     render(){
         const list=Store.getState().result.filter(e=>e.header==this.props.head);

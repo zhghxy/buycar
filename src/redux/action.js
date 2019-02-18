@@ -17,17 +17,8 @@ export function sendRequest(param){
    return promise;
 }
 
+//初始化页面内容
 export function initItem(type){
-    /*return new Promise(function(resolve,reject){
-        dispatch({type:'INIT-START'});
-        return sendRequest(1).then(function(response){
-            console.log(response);
-            return{
-                type:'INIT',
-                result:response
-            }
-        });
-    })*/
     return (dispatch,getState)=>{
         dispatch({type:'INIT-START'});
         return sendRequest("keyword="+type).then(
@@ -54,36 +45,6 @@ export function initItem(type){
         );
     }
     
-
-   /* return {
-        type:'INIT',
-        result:[
-            {
-                header:'大牌店铺',
-                name:"简爱",
-                price:20,
-                image:"../photo/1.jpg"
-            },
-            {
-                header:'大牌店铺',
-                name:"简爱1",
-                price:20,
-                image:"../photo/1.jpg"
-            },
-            {
-                header:'奶粉冲调',
-                name:"优选",
-                price:20,
-                image:"../photo/1.jpg"
-            },
-            {
-                header:'进口食品',
-                name:"优选",
-                price:20,
-                image:"../photo/1.jpg"
-            }
-        ]
-    }*/
 }
 
 //获得单个标题下的信息
@@ -94,8 +55,8 @@ export function getByHeader(name){
     }
 }
 
+//初始化右侧导航
 export function setHeader(){
-    
     return (dispatch,getState)=>{
         dispatch({type:'INIT-HEADER-START'});
         return sendRequest("keyword=2").then(
@@ -107,11 +68,6 @@ export function setHeader(){
             });}
         )
     }
-     /*
-    return {
-        type:'INIT-HEADER',
-        headerList:headers
-    }*/
 }
 
 //页面滚动时设置高亮条目
@@ -122,15 +78,8 @@ export function activePage(i){
     }
 }
 
+//加入购物车
 export function addItem(e){
-    /*return{
-        type:'ADD',
-        item:{
-            name:e.name,
-            price:e.price,
-            count:e.count
-        }
-    }*/
     return (dispatch,getState)=>{
         dispatch({type:'ADD-START'});
         return sendRequest("keyword=3&&id="+e.id+"&&count="+e.count).then(

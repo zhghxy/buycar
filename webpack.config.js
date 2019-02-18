@@ -1,5 +1,5 @@
-const path=require('path')
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var webpack=require("webpack");
 module.exports={
     entry:{
         index:'./src/index.js',
@@ -7,6 +7,7 @@ module.exports={
     },
     output:{
         path:__dirname+"./dist",
+        publicPath:/temp/,
         filename:'[name].js'
     },
     module:{
@@ -32,5 +33,13 @@ module.exports={
 		contentBase:'./dist',
 		watchContentBase:true,
 		inline:true
-	}
+    },
+    plugins: [
+        new UglifyJsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify("production")
+            }
+        })
+    ]
 }
