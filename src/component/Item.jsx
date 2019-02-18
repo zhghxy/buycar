@@ -12,22 +12,14 @@ export class Item extends React.Component{
     }
 
     addItem(){
-        /*Store.dispatch({
-            type:"ADD",
-            item:{
-                id:this.props.id,
-                name:this.props.iname,
-                price:this.props.price,
-                count:1
-            }
-        })*/
+       
         Store.dispatch(addToStore({
             id:this.props.mid,
             name:this.props.iname,
             price:this.props.price,
             image:this.props.image,
             count:1
-        })).then(console.log(Store.getState()));
+        }));
     }
 
     render(){

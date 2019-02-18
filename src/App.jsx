@@ -37,6 +37,7 @@ class FootBuyCar extends Component{
     this.goSettle=this.goSettle.bind(this);
   }
   
+  //跳转到结算页面
   goSettle(){
     window.open("../settle.html","settle");
   }

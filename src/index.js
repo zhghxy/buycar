@@ -4,7 +4,7 @@ import './index.css';
 import App from './App.jsx';
 
 import {Store} from "./redux/reducer.js";
-import {initItem,setHeader, activePage} from "./redux/action.js";
+import {initItem,activePage} from "./redux/action.js";
 
 const render=()=>{
     ReactDOM.render(
@@ -13,8 +13,9 @@ const render=()=>{
     );
 }
 Store.subscribe(render);
-//Store.dispatch(setHeader()).then(()=>console.log(Store.getState()));;
-Store.dispatch(initItem(1)).then(()=>console.log(Store.getState()));
+Store.dispatch(initItem(1));
+
+//页面滚动时设置右侧导航条目高亮
 window.addEventListener("scroll",function(){
     const list=document.getElementsByClassName("item-list"),
           scrollTop=document.documentElement.scrollTop,
